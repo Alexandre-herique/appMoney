@@ -1,0 +1,29 @@
+
+
+http(url, tipo, dados, resposta);
+
+URL: Endereço da internet para requisição de dados;
+
+Tipo: Formas de requisições cujo o mesmo dependendo da escolha, fará uma rotina específica no banco de dados.
+
+Dados: São informações que deseja enviar para o servidor.
+
+Resposta: É função de retorno (callback)
+
+
+
+http("http://localhost:5500/data/lancamentos.json", "GET", [], function (dados) {
+   // Rotina a ser chamada
+});
+
+http://www.site.com.br/
+
+GET: Ler dados do banco de dados
+POST: Para inserir informações no banco de dados
+PUT: Editar informações no banco de dados
+DELETE: Paga uma informação do banco de dados
+
+
+Callback (Chamada de retorno)
+
+

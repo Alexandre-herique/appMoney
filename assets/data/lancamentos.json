@@ -1,0 +1,5 @@
+[
+    { "id": "1", "descricao": "salario", "valor": "2500.00", "tipo": "c" },
+    { "id": "2", "descricao": "Água, Luz, Telefone", "valor": "200.00", "tipo": "d" },
+    { "id": "3", "descricao": "Compras Parceladas", "valor": "535.37", "tipo": "d" }
+]

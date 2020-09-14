@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="/assets/jS/lancamentos.js"></script>
+    <script src="/assets/jS/http.js"></script>
+    <title>AppMoney</title>
+</head>
+
+<body>
+    <header> AppMoney </header>
+    <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Lançar contas</a>
+        <a href="#">Fluxo de Caixa</a>
+    </nav>
+    <main>
+        <h1> Fluxo de Contas</h1>
+        <table id="tabelaLancamentos">
+            <thead>
+                <tr>
+
+                    <th> # </th>
+                    <th> Descrição </th>
+                    <th> Valor </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <br>
+        <div>Total de receitas: <span id="totalReceitas">-</span></div>
+        <div>Total de Despesas: <span id="totalDespesas">-</span></div>
+        <div>Saldo: <span id="saldo">-</span></div>
+    </main>
+    <footer>
+        AppMoney 0.1.0-alpha
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+    lancamentos()
+</script>
