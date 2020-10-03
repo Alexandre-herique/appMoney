@@ -3,7 +3,7 @@
  * Função de controle dos dados de lançamentos
  * 
  */
-var lancamentos = function () {
+var lancamentos = function() {
 
     /**
      * Função de carregamento dos dados via HTTP
@@ -11,16 +11,16 @@ var lancamentos = function () {
      * URL, Tipo, Dados, Resposta
      * 
      */
-    let carregaDados = function () {
-        
-        http('http://localhost:5500/data/lancamentos.json', 'GET', [], resposta);
+    let carregaDados = function() {
+
+        http('http://localhost:5500/assets/data/lancamentos.json', 'GET', [], resposta);
 
     }
 
     /**
      * Função de resposta da solicitação à Web Service 
      */
-    var resposta = function ( dados ) {
+    var resposta = function(dados) {
 
         var dadosLancamentos = JSON.parse(dados);
 
@@ -44,30 +44,30 @@ var lancamentos = function () {
              */
             dados.forEach(item => {
 
-                
+
                 /**
                  * Passo 3: Concatenação de HTML formando as linhas da tabela
                  */
-                html += '<tr'+(item.tipo == 'C' ? ' class="bgCredito"' : ' class="bgDebito"')+'>\
-                            <td>'+item.id+'</td>\
-                            <td>'+item.descricao+'</td>\
+                html += '<tr' + (item.tipo == 'C' ? ' class="bgCredito"' : ' class="bgDebito"') + '>\
+                            <td>' + item.id + '</td>\
+                            <td>' + item.descricao + '</td>\
                          </tr>';
-                         
+
                 /**
                  * Passo 4: Define uma variável para converter o valor e utilizar o mesmo nos cálculos
                  */
                 let valor = parseFloat(item.valor);
-                         
+
 
                 /**
                  * Passo 5: Valida se o valor que está vindo é de débito ou crédito
                  */
                 if (item.tipo == 'C') {
                     totalReceitas.push(valor);
-                } else if ( item.tipo == 'D' ) {
+                } else if (item.tipo == 'D') {
                     totalDespesas.push(valor);
                 }
-                
+
             });
 
             /**
@@ -75,7 +75,7 @@ var lancamentos = function () {
              */
 
             let soma = (valor, total) => valor + total;
-                
+
             /**
              * Passo 7: Chama o reduce para somar os valors do vetores
              */
@@ -99,7 +99,7 @@ var lancamentos = function () {
 
             let bgClasse = '';
 
-            if(saldo > 0) {
+            if (saldo > 0) {
                 bgClasse = 'textCredito';
             } else {
                 bgClasse = 'textDebito';
@@ -129,24 +129,24 @@ var lancamentos = function () {
 
                 let valor = parseFloat(item.valor);
                 let repres = ((valor / totalReceitas) * 100);
-                
+
                 saldoFluxo += valor;
 
                 /**
                  * Passo 3: Concatenação de HTML formando as linhas da tabela
                  */
                 html += '<tr>\
-                            <td>'+item.data+'</td>\
-                            <td>'+item.descricao+'</td>\
-                            <td class="'+(item.tipo == 'C' ? 'bgCredito' : 'bgDebito')+'">'+floatToMoney(valor)+' '+item.tipo+'</td>\
-                            <td class="'+(saldoFluxo > 0 ? 'bgCredito' : 'bgDebito')+'">'+floatToMoney(saldoFluxo)+'</td>\
-                            <td>'+floatToPerc(item.perfil)+'</td>\
-                            <td class="'+(Math.abs(repres) > parseFloat(item.perfil) ? 'bgDebito' : 'bgCredito')+'">'+floatToPerc(repres)+'</td>\
+                            <td>' + item.data + '</td>\
+                            <td>' + item.descricao + '</td>\
+                            <td class="' + (item.tipo == 'C' ? 'bgCredito' : 'bgDebito') + '">' + floatToMoney(valor) + ' ' + item.tipo + '</td>\
+                            <td class="' + (saldoFluxo > 0 ? 'bgCredito' : 'bgDebito') + '">' + floatToMoney(saldoFluxo) + '</td>\
+                            <td>' + floatToPerc(item.perfil) + '</td>\
+                            <td class="' + (Math.abs(repres) > parseFloat(item.perfil) ? 'bgDebito' : 'bgCredito') + '">' + floatToPerc(repres) + '</td>\
                          </tr>';
 
             });
 
-            
+
             document.getElementById('tbodyTabelaFluxoCaixa').innerHTML = html;
         }
 
@@ -157,10 +157,10 @@ var lancamentos = function () {
     carregaDados();
 }
 
-function floatToMoney (value) {
-    return parseFloat(value).toLocaleString('pt-br', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+function floatToMoney(value) {
+    return parseFloat(value).toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function floatToPerc(value) {
-    return parseFloat(value).toLocaleString('pt-br', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+    return parseFloat(value).toLocaleString('pt-br', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 }
