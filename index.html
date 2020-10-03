@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/http.js"></script>
+    <script src="assets/js/lancamentos.js"></script>
+    <title>appMoney</title>
+</head>
+<body>
+    <header> appMoney </header>
+    <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Lançar contas</a>
+        <a href="#">Fluxo de Caixa</a>
+    </nav>
+    <main>
+        <div id="lancamentos">
+            <h1>Lançamentos</h1>
+            <table id="tabelaLancamentos">
+                <thead>
+                    <tr>
+                        <th> # </th>
+                        <th> Descrição </th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyTabelaLancamentos">
+                    
+                </tbody>
+            </table>
+            <h1>Fluxo de Caixa</h1>
+            <table id="tabelaFluxoCaixa">
+                <thead>
+                    <tr>
+                        <th> Data </th>
+                        <th> Conta </th>
+                        <th> Valor </th>
+                        <th> Saldo </th>
+                        <th> % Perfil </th>
+                        <th> % Repres. </th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyTabelaFluxoCaixa">
+                    
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div>Total de receitas: <span id="totalReceitas" class="textCredito">-</span></div>
+        <div>Total de despesas: <span id="totalDespesas" class="textDebito">-</span></div>
+        <div class="caixaSaldo">Saldo: <span id="saldo">-</span></div>
+    </main>
+    <footer>
+        appMoney 0.1.0-alpha
+    </footer>
+    <script> lancamentos() </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+[
+    {"id": "1", "data": "05/09/2020", "descricao": "Salário", "valor": "2500.00", "tipo": "C", "perfil": "100.00"},
+    {"id": "2", "data": "15/09/2020", "descricao": "Água, luz, telefone", "valor": "-200.00", "tipo": "D", "perfil": "5.0"},
+    {"id": "3", "data": "20/09/2020", "descricao": "Compras parceladas", "valor": "-535.37", "tipo": "D", "perfil": "15.0"},
+    {"id": "4", "data": "21/09/2020", "descricao": "TV a Cabo", "valor": "-180.00", "tipo": "D", "perfil": "10.0"},
+    {"id": "5", "data": "22/09/2020", "descricao": "Abono", "valor": "520.00", "tipo": "C", "perfil": "10.0"}
+]
